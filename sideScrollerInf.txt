@@ -1,0 +1,13 @@
+Map will be generated while you move along
+If player is on ground, pause, wait for action
+If "w" is pressed then jump forward
+"a" and "d" is side to side, only load forward
+When key is pressed = move the map.
+
+MAKE SURE THERE IS A PLATFORM FOR THEPLAYER
+
+Movement function
+
+"\a" plays a node
+
+FIX Parsing of 2 integers from main to movement (both ways)

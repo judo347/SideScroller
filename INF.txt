@@ -3,11 +3,19 @@ If player is on ground, pause, wait for action
 If "w" is pressed then jump forward
 "a" and "d" is side to side, only load forward
 When key is pressed = move the map.
-
-MAKE SURE THERE IS A PLATFORM FOR THEPLAYER
-
-Movement function
-
 "\a" plays a node
 
+
+ToDo:
+MAKE SURE THERE IS A PLATFORM FOR THEPLAYER
+Movement function (jump) 
+ - needing a pause (using sleep)
+ - player now going up? WORKING ON THIS ATM
+Make check and die if no playform under the player
+
+Done:
+Movement function (sideways)
 FIX Parsing of 2 integers from main to movement (both ways)
+
+
+

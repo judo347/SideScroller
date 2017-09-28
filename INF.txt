@@ -8,13 +8,16 @@ When key is pressed = move the map.
 
 ToDo:
 MAKE SURE THERE IS A PLATFORM FOR THEPLAYER
-Movement function (jump) 
- - needing a pause (using sleep)
- - player now going up? WORKING ON THIS ATM
 Make check and die if no playform under the player
+Save the make to an array or likewise
+Make the map go sideways
+Add boxes to jump on
 
 Done:
 Movement function (sideways)
+Movement function (jump) 
+ - needing a pause (using sleep)
+ - player now going up? WORKING ON THIS ATM
 FIX Parsing of 2 integers from main to movement (both ways)
 
 

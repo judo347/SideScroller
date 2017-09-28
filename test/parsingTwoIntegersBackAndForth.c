@@ -1,6 +1,26 @@
 #include <stdio.h>
 
+/* IMPROVED */
+void Calculate(int x, int y, int* prod, int* quot)
+{
+    *prod = ++x;
+    *quot = --y;
+}
 
+int main()
+{
+    int x = 5,y = 5, prod, quot;
+    Calculate(x, y, &prod, &quot);
+    x = prod;
+    y = quot;
+    printf("%d %d\n", prod, quot);
+    printf("%d %d\n", x, y);
+
+
+    return 0;
+}
+
+/* WORKS
 void Calculate(int x, int y, int* prod, int* quot)
 {
     *prod = x*y;
@@ -11,12 +31,12 @@ int main()
 {
     int x = 10,y = 2, prod, quot;
     Calculate(x, y, &prod, &quot);
-    printf("%d %d\n", x, y);
+    printf("%d %d\n", prod, quot);
 
 
     return 0;
 }
-
+*/
 
 /* USING STRUCT - DOES NOT WORK!
 struct player
@@ -45,4 +65,3 @@ int main(void)
 }
 
 */
-

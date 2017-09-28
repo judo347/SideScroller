@@ -22,21 +22,30 @@ int map(int playPosX, int playPosY, int gameState) /*OUTPUT on screen*/
         printf("S");
     printf("\n");
     /* LINE TWO */
-
+    for(i=0;i<wide;i++)
+        if(playPosX == i && playPosY == 2)
+            printf("P");
+        else
+            printf(" ");
     printf("\n");
     /* LINE THREE */
 
     printf("\n");
     /* LINE FOUR */
+    for(i=0;i<wide;i++)
+        if(playPosX == i && playPosY == 4)
+            printf("P");
+        else
+            printf(" ");
 
     printf("\n");
     /* LINE FIVE */
     for(i=0;i<wide;i++)
     {
-        if(playPosX == i)
-        printf("P");
+        if(playPosX == i && playPosY == 5)
+            printf("P");
         else
-        printf(" ");
+            printf(" ");
     }
 
     printf("\n");
@@ -66,9 +75,9 @@ int map(int playPosX, int playPosY, int gameState) /*OUTPUT on screen*/
     return 1;
 }
 
-int jump() /* PLAYER JUMPING */
+void jump(int playPosX, int playPosY, int* poiX, int* poiY) /* PLAYER JUMPING */
 {
-    return 0;
+
 }
 
 void clearScr() /* CLEARS THE SCREEN */
@@ -82,21 +91,19 @@ void move(int playPosX, int playPosY, int* poiX, int* poiY) /* HANDLING PLAYER M
     int c = getche();
     switch(c)
     {
-        case 'w' : printf("w\n"); /* JUMP */
-                   playPosX = playPosX + 1;
-                   playPosY = playPosY - 1;
-                   map(playPosX, playPosY, 1);
-                   Sleep(500);
-                   playPosX = playPosX + 1;
-                   map(playPosX, playPosY, 1);
-                   Sleep(500);
-                   *poiX = playPosX + 1;
-                   *poiY = playPosY + 1;
-
+        case 'w' :  playPosX = playPosX + 1; /* JUMP */
+                    playPosY = playPosY - 1;
+                    map(playPosX, playPosY, 1);
+                    Sleep(200);
+                    playPosX = playPosX + 1;
+                    map(playPosX, playPosY, 1);
+                    Sleep(200);
+                    playPosX = playPosX +1;
+                    playPosY = playPosY +1;
+                    *poiX = playPosX;
+                    *poiY = playPosY;
             break;
         case 'a' : *poiX = --playPosX; /* x--  playPos[0]--*/
-            break;
-        case 's' : printf("s\n");
             break;
         case 'd' : *poiX = ++playPosX; /* x++ */
             break;
@@ -129,7 +136,9 @@ int main(void)
 
 
 
-    }
+}
+    
+    
     /*
 	if(map(playerPosX,playerPosY,gameState) == 0)  /* CHECK THE GAME STATUS. END THE GAME IF 0 IS RETURNED
     {

@@ -6,11 +6,13 @@
 int initializeMap() /* initializes / updating the map */
 {
     int x, y;
-    for(x=0; x<wide; x++)
+    for(y=0; y<hight; y++)
     {
-        printf("%d", x);
-        for(y=0; y<hight; y++)
-            printf("%d", y);
+        printf("%d", y);
+        for(x=0; x<wide; x++)
+        {
+            printf("%d", x);
+        }
         printf("\n");
     }
     return 0;

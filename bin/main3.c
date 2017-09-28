@@ -17,87 +17,33 @@ int rng(int possible)
 /* MAP SECMENT */
 int initializeMap(int playPosX, int playPosY, int gameState) /* initializes / updating the map */
 {
-    /* COPY FROM THE 3dArrayPrinting FILE!*/
     int x, y;
-    for(x=0; x<wide; x++)
+    for(y=0; y<hight; y++)
     {
-        print("%d", x);
-        for(y=0; y<hight; y++)
-            printf("%d", y);
-        printf("\n");
+        for(x=0; x<wide; x++)
+        {
+            if(y == 0)
+                map[y][x];
+        }
     }
+    return 0;
 }
 
 void printMap()
 {
-
+    int x, y;
+    for(y=0; y<hight; y++)
+    {
+        printf("%d", y);
+        for(x=0; x<wide; x++)
+        {
+            printf("%d", x);
+        }
+        printf("\n");
+    }
 }
 
 /* MAP SECMENT END */
-
-int map(int playPosX, int playPosY, int gameState) /*OUTPUT on screen*/
-{
-    clearScr(); /* Clears the screen! */
-    int i, x;
-    int wide = 20;
-    int high = 6;
-    /* LINE ONE */
-    for(i=0;i<wide;i++)
-        printf("S");
-    printf("\n");
-    /* LINE TWO */
-    for(i=0;i<wide;i++)
-        if(playPosX == i && playPosY == 2)
-            printf("P");
-        else
-            printf(" ");
-    printf("\n");
-    /* LINE THREE */
-
-    printf("\n");
-    /* LINE FOUR */
-    for(i=0;i<wide;i++)
-        if(playPosX == i && playPosY == 4)
-            printf("P");
-        else
-            printf(" ");
-
-    printf("\n");
-    /* LINE FIVE */
-    for(i=0;i<wide;i++)
-    {
-        if(playPosX == i && playPosY == 5)
-            printf("P");
-        else
-            printf(" ");
-    }
-
-    printf("\n");
-    /* LINE SIX - BASE LINE */
-    if(playPosY == 6) /* CHECK, is the player in a hole in the floor? */
-        {
-                printf("Player felt through the floor!\n");
-                gameState = 0;
-                return 0;
-        }
-
-    for(i=0;i<wide;i++) /* LOOP  chancing a line*/
-    {
-        int ranNum;
-        for(x=0;x<holeChance;x++)
-        {
-            ranNum = rng(2);
-            if(ranNum == 1)
-                x = holeChance;
-        }
-        if(ranNum == 1)
-            printf("\"");
-        else
-            printf(" ");
-    }
-
-    return 1;
-}
 
 void clearScr() /* CLEARS THE SCREEN */
 {
@@ -111,10 +57,10 @@ void move(int playPosX, int playPosY, int* poiX, int* poiY) /* HANDLING PLAYER M
     {
         case 'w' :  playPosX = playPosX + 1; /* JUMP */
                     playPosY = playPosY - 1;
-                    map(playPosX, playPosY, 1);
+                    //map(playPosX, playPosY, 1);
                     Sleep(200);
                     playPosX = playPosX + 1;
-                    map(playPosX, playPosY, 1);
+                    //map(playPosX, playPosY, 1);
                     Sleep(200);
                     playPosX = playPosX +1;
                     playPosY = playPosY +1;
@@ -139,7 +85,7 @@ int main(void)
 
     while(gameState)
     {
-        map(playPosX, playPosY, gameState);
+        /* map(playPosX, playPosY, gameState); */
         printf("%d %d", playPosX, playPosY); /* TEST */
 
         move(playPosX, playPosY, &poiX, &poiY); /* Sending the x and y coord to move-function (and the pointers) */
@@ -149,3 +95,70 @@ int main(void)
 
 	return 0;
 }
+
+
+/*
+int map(int playPosX, int playPosY, int gameState) /*OUTPUT on screen*
+{
+    clearScr(); /* Clears the screen!
+    int i, x;
+    int wide = 20;
+    int high = 6;
+    /* LINE ONE
+    for(i=0;i<wide;i++)
+        printf("S");
+    printf("\n");
+    /* LINE TW
+    for(i=0;i<wide;i++)
+        if(playPosX == i && playPosY == 2)
+            printf("P");
+        else
+            printf(" ");
+    printf("\n");
+    /* LINE THREE
+
+    printf("\n");
+    /* LINE FOUR
+    for(i=0;i<wide;i++)
+        if(playPosX == i && playPosY == 4)
+            printf("P");
+        else
+            printf(" ");
+
+    printf("\n");
+    /* LINE FIVE
+    for(i=0;i<wide;i++)
+    {
+        if(playPosX == i && playPosY == 5)
+            printf("P");
+        else
+            printf(" ");
+    }
+
+    printf("\n");
+    /* LINE SIX - BASE LINE
+    if(playPosY == 6) /* CHECK, is the player in a hole in the floor
+        {
+                printf("Player felt through the floor!\n");
+                gameState = 0;
+                return 0;
+        }
+
+    for(i=0;i<wide;i++) /* LOOP  chancing a line
+    {
+        int ranNum;
+        for(x=0;x<holeChance;x++)
+        {
+            ranNum = rng(2);
+            if(ranNum == 1)
+                x = holeChance;
+        }
+        if(ranNum == 1)
+            printf("\"");
+        else
+            printf(" ");
+    }
+
+    return 1;
+}
+*/

@@ -4,12 +4,36 @@
 #include <windows.h>
 
 #define holeChance 3
+#define wide 20
+#define hight 6
 
+char map[wide][hight];
 
 int rng(int possible)
 {
     return possible = rand() % possible;
 }
+
+/* MAP SECMENT */
+int initializeMap(int playPosX, int playPosY, int gameState) /* initializes / updating the map */
+{
+    /* COPY FROM THE 3dArrayPrinting FILE!*/
+    int x, y;
+    for(x=0; x<wide; x++)
+    {
+        print("%d", x);
+        for(y=0; y<hight; y++)
+            printf("%d", y);
+        printf("\n");
+    }
+}
+
+void printMap()
+{
+
+}
+
+/* MAP SECMENT END */
 
 int map(int playPosX, int playPosY, int gameState) /*OUTPUT on screen*/
 {
@@ -74,7 +98,6 @@ int map(int playPosX, int playPosY, int gameState) /*OUTPUT on screen*/
 
     return 1;
 }
-
 
 void clearScr() /* CLEARS THE SCREEN */
 {

@@ -87,8 +87,11 @@ int main(void)
     {
         /* map(playPosX, playPosY, gameState); */
         printf("%d %d", playPosX, playPosY); /* TEST */
-
-        move(playPosX, playPosY, &poiX, &poiY); /* Sending the x and y coord to move-function (and the pointers) */
+        initializeMap(playPosX, playPosY, gameState);
+        printMap();
+        Sleep(100);
+        clearScr();
+        //move(playPosX, playPosY, &poiX, &poiY); /* Sending the x and y coord to move-function (and the pointers) */
         playPosX = poiX; /* Saving the pointer in the variable */
         playPosY = poiY; /* Saving the pointer in the variable  */
     }

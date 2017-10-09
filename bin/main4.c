@@ -4,10 +4,10 @@
 #include <windows.h>
 
 #define holeChance 3
-#define wide 9
+#define width 9
 #define hight 6
 
-char map[wide][hight];
+char map[hight][width];
 
 int rng(int possible)
 {
@@ -21,7 +21,7 @@ int initializeMap(int playPosX, int playPosY, int gameState) /* initializes / up
     int z = 0;
     for(x=0; x<hight; x++)
     {
-        for(y=0; y<wide; y++)
+        for(y=0; y<width; y++)
         {
             //if(x == 0)
                 //map[y][x];
@@ -51,7 +51,7 @@ void printMap()
     for(x=0; x<hight; x++)
     {
         //printf("%d", 7);
-        for(y=0; y<wide; y++)
+        for(y=0; y<width; y++)
         {
             //printf("%d ",z++);
             printf("%c", map[x][y]);

@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <windows.h>
+
+#define wide 9
+#define hight 6
+
+char map[wide][hight];
+
+
+/* MAP SECMENT */
+int initializeMap(int playPosX, int playPosY, int gameState) /* initializes / updating the map */
+{
+    int x, y;
+    for(x=0; x<hight; x++)
+    {
+        for(y=0; y<wide; y++)
+        {
+            if(x == playPosX && y == playPosY) /* The player */
+                map[x][y] = 'x';
+
+
+        }
+    }
+    return 0;
+}
+
+void printMap()
+{
+    int x, y;
+    int z = 0;
+    for(x=0; x<hight; x++)
+    {
+        for(y=0; y<wide; y++)
+        {
+            printf("%c", map[x][y]);
+        }
+        printf("\n");
+    }
+}
+
+void clearScr() /* CLEARS THE SCREEN */
+{
+    system("@cls||clear");
+}
+
+int main(void)
+{
+    int gameState = 1; /* 1 = running, 0 = game has ended */
+    int i, x;
+    int playPosX = 5, playPosY = 5, poiX = 5, poiY = 5;
+
+    while(gameState)
+    {
+        initializeMap(playPosX, playPosY, gameState);
+        printMap();
+        Sleep(100);
+        clearScr();
+    }
+
+	return 0;
+}

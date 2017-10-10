@@ -1,5 +1,11 @@
 # SideScroller
 Basic sidescroller game in C (Practice purpose)
 
+ToDo:
+Random Gen Gulv
+Move gulv med player function
 
-Printing 2 places in array instead of one... 
+lav død function/animation
+
+Fix x og y.. playerMove forkert akse (fixed i initiFunction)
+

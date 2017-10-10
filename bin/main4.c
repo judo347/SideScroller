@@ -15,45 +15,36 @@ int rng(int possible)
 }
 
 /* MAP SECMENT */
-int initializeMap(int playPosX, int playPosY, int gameState) /* initializes / updating the map */
+int initializeMap(int playPosY, int playPosX, int gameState) /* initializes / updating the map */
 {
     int x, y;
-    int z = 0;
+    gameState = 1;
     for(x=0; x<hight; x++)
     {
         for(y=0; y<width; y++)
         {
-            //if(x == 0)
-                //map[y][x];
-            /*
-            if(x == 0)
-                printf("%d", 8080);
-            else
-                printf("%d ",z++);
-
-            /*
-            if(x == playPosX && y == playPosY) /* The player
-                map[x][y] = 'x'; */
-            if(x == 0)
+            if(x == playPosX && y == playPosY) /* The player */
+                map[x][y] = 'x';
+            else if(x == 0)
                 map[x][y] = 95;
-
+            else
+                map[x][y] = ' ';
 
         }
         //printf("\n");
     }
-    return 0;
+    return gameState;
 }
 
 void printMap()
 {
     int x, y;
     int z = 0;
+    clearScr();
     for(x=0; x<hight; x++)
     {
-        //printf("%d", 7);
         for(y=0; y<width; y++)
         {
-            //printf("%d ",z++);
             printf("%c", map[x][y]);
         }
         printf("\n");
@@ -74,10 +65,12 @@ void move(int playPosX, int playPosY, int* poiX, int* poiY) /* HANDLING PLAYER M
     {
         case 'w' :  playPosX = playPosX + 1; /* JUMP */
                     playPosY = playPosY - 1;
-                    //map(playPosX, playPosY, 1);
+                    initializeMap(playPosX, playPosY, 1);
+                    printMap();
                     Sleep(200);
                     playPosX = playPosX + 1;
-                    //map(playPosX, playPosY, 1);
+                    initializeMap(playPosX, playPosY, 1);
+                    printMap();
                     Sleep(200);
                     playPosX = playPosX +1;
                     playPosY = playPosY +1;
@@ -102,15 +95,14 @@ int main(void)
 
     while(gameState)
     {
-        /* map(playPosX, playPosY, gameState); */
-        //printf("%d %d", playPosX, playPosY); /* TEST */
-        initializeMap(playPosX, playPosY, gameState);
+        gameState = initializeMap(playPosX, playPosY, gameState);
         printMap();
+        printf("%d %d", playPosX, playPosY);
+        move(playPosX, playPosY, &poiX, &poiY); /* Sending the x and y coord to move-function (and the pointers) */
+        playPosX = poiX; /* Saving the pointer in the variable */
+        playPosY = poiY; /* Saving the pointer in the variable  */
+
         Sleep(100);
-        clearScr();
-        //move(playPosX, playPosY, &poiX, &poiY); /* Sending the x and y coord to move-function (and the pointers) */
-        //playPosX = poiX; /* Saving the pointer in the variable */
-        //playPosY = poiY; /* Saving the pointer in the variable  */
     }
 
 	return 0;

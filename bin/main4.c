@@ -9,6 +9,19 @@
 
 char map[hight][width];
 
+void moveMapOne()
+{
+    int x, y;
+    for(x=0; x<hight; x++)
+    {
+        for(y=0; y<width; y++)
+        {
+            map[x][y] = map[x][y+1];
+            printf("WHAT");
+        }
+    }
+}
+
 int rng(int possible)
 {
     return possible = rand() % possible;
@@ -77,7 +90,8 @@ void move(int playPosX, int playPosY, int* poiX, int* poiY) /* HANDLING PLAYER M
                     *poiX = playPosX;
                     *poiY = playPosY;
             break;
-        case 'a' : *poiX = --playPosX; /* Move one step to the left */
+        case 'a' :  if(playPosX != 0)
+                        *poiX = --playPosX; /* Move one step to the left */
             break;
         case 'd' : *poiX = ++playPosX; /* Moves one step to the right */
             break;
@@ -91,16 +105,18 @@ int main(void)
     int gameState = 1; /* 1 = running, 0 = game has ended */
     srand(time(NULL));
     int i, x;
-    int playPosX = 5, playPosY = 5, poiX = 5, poiY = 5;
+    int playPosX = 5, playPosY = 4, poiX = 5, poiY = 4;
 
     while(gameState)
     {
         gameState = initializeMap(playPosX, playPosY, gameState);
+        //map[5][3] = '*';
         printMap();
         printf("%d %d", playPosX, playPosY);
         move(playPosX, playPosY, &poiX, &poiY); /* Sending the x and y coord to move-function (and the pointers) */
         playPosX = poiX; /* Saving the pointer in the variable */
         playPosY = poiY; /* Saving the pointer in the variable  */
+        //moveMapOne();
 
         Sleep(100);
     }

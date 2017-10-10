@@ -5,7 +5,10 @@ ToDo:
 Random Gen Gulv
 lav død function/animation
 MoveMap
-
+Working on: moveArrayOneLeft.c
+Shift 2d array
+https://stackoverflow.com/questions/12633039/shift-elements-in-array
+https://stackoverflow.com/questions/28334143/function-to-left-shift-a-2d-array-in-c
 
 Main3:
 Without array. Random floor gen.

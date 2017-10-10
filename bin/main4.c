@@ -52,7 +52,6 @@ int initializeMap(int playPosY, int playPosX, int gameState) /* initializes / up
 void printMap()
 {
     int x, y;
-    int z = 0;
     clearScr();
     for(x=0; x<hight; x++)
     {
@@ -110,7 +109,6 @@ int main(void)
     while(gameState)
     {
         gameState = initializeMap(playPosX, playPosY, gameState);
-        //map[5][3] = '*';
         printMap();
         printf("%d %d", playPosX, playPosY);
         move(playPosX, playPosY, &poiX, &poiY); /* Sending the x and y coord to move-function (and the pointers) */
@@ -190,3 +188,4 @@ int map(int playPosX, int playPosY, int gameState) /*OUTPUT on screen*
     return 1;
 }
 */
+

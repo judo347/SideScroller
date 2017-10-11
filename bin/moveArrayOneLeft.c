@@ -4,10 +4,11 @@
 #include <windows.h>
 
 #define holeChance 3
-#define width 9
+#define width 16
 #define hight 6
 
 char map[hight][width];
+
 
 void moveMapOne()
 {
@@ -16,8 +17,8 @@ void moveMapOne()
     {
         for(y=0; y<width; y++)
         {
-            if(x != width-2)
-                map[x][y] = map[x][y+1];
+            if(y != width-1)
+                map[x][y-1] = map[x][y];
         }
     }
 }
@@ -40,6 +41,8 @@ int initializeMap(int playPosY, int playPosX, int gameState) /* initializes / up
         {
             if(x == playPosX && y == playPosY) /* The player */
                 map[x][y] = 'x';
+            else if(x == 0 && y == 5)
+                map[x][y] = ' ';
             else if(x == 0)
                 map[x][y] = 95;
             else if(x == 2 && y == 5)
@@ -60,7 +63,7 @@ void printMap()
     clearScr();
     for(x=0; x<hight; x++)
     {
-        for(y=0; y<width; y++)
+        for(y=0; y<width-1; y++)
         {
             printf("%c", map[x][y]);
         }
@@ -90,9 +93,8 @@ int main(void)
         //map[5][3] = '*';
         printMap();
         moveMapOne();
-        Sleep(1000);
+        Sleep(100);
     }
 
 	return 0;
 }
-

@@ -4,7 +4,7 @@ Basic sidescroller game in C (Practice purpose)
 ToDo:
 Random Gen Gulv
 lav død function/animation
-MoveMap
+MoveMap (fix moving player)
 
 Working on: moveArrayOneLeft.c
 Shift 2d array

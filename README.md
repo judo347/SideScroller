@@ -2,7 +2,7 @@
 Basic sidescroller game in C (Practice purpose)
 
 ### ToDo: ###
-- [X] Random Gen Gulv
+- [ ] Random Gen Gulv
 - [ ] lav død function/animation
 - [ ] MoveMap (fix moving player)
 

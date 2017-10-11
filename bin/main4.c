@@ -9,17 +9,22 @@
 
 char map[hight][width];
 
-void moveMapOne()
+void moveMapOne(int playPosY, int playPosX)
 {
     int x, y;
     for(x=0; x<hight; x++)
     {
         for(y=0; y<width; y++)
         {
-            map[x][y] = map[x][y+1];
-            printf("WHAT");
+            if(map[x][y+1] != 'x')
+            {
+                if(y != width-1)
+                    map[x][y-1] = map[x][y];
+            }
+
         }
     }
+    printf("Move!");
 }
 
 int rng(int possible)
@@ -38,6 +43,8 @@ int initializeMap(int playPosY, int playPosX, int gameState) /* initializes / up
         {
             if(x == playPosX && y == playPosY) /* The player */
                 map[x][y] = 'x';
+            else if(x == 4 && y == 2)
+                map[x][y] = 'J';
             else if(x == 0)
                 map[x][y] = 95;
             else
@@ -55,7 +62,7 @@ void printMap()
     clearScr();
     for(x=0; x<hight; x++)
     {
-        for(y=0; y<width; y++)
+        for(y=0; y<width-1; y++)
         {
             printf("%c", map[x][y]);
         }
@@ -106,15 +113,16 @@ int main(void)
     int i, x;
     int playPosX = 5, playPosY = 4, poiX = 5, poiY = 4;
 
+    gameState = initializeMap(playPosX, playPosY, gameState);
+
     while(gameState)
     {
-        gameState = initializeMap(playPosX, playPosY, gameState);
         printMap();
         printf("%d %d", playPosX, playPosY);
         move(playPosX, playPosY, &poiX, &poiY); /* Sending the x and y coord to move-function (and the pointers) */
         playPosX = poiX; /* Saving the pointer in the variable */
         playPosY = poiY; /* Saving the pointer in the variable  */
-        //moveMapOne();
+        moveMapOne(playPosX, playPosY);
 
         Sleep(100);
     }

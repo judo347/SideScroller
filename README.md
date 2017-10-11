@@ -5,7 +5,6 @@ Basic sidescroller game in C (Practice purpose)
 - [ ] Random Gen Gulv
 - [ ] lav død function/animation
 - [ ] MoveMap (fix moving player)
-- [ ] In main-function, convert to do-while loop
 
 #### Working on: moveArrayOneLeft.c
 Shift 2d array

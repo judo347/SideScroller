@@ -19,7 +19,7 @@ void moveMapOne(int playPosY, int playPosX)
             if(map[x][y+1] != 'x')
             {
                 if(y != width-1)
-                    map[x][y-1] = map[x][y];
+                    map[x][y] = map[x][y+1];
             }
 
         }
@@ -82,11 +82,23 @@ void move(int playPosX, int playPosY, int* poiX, int* poiY) /* HANDLING PLAYER M
     int c = getche();
     switch(c)
     {
-        case 'w' :  playPosX = playPosX + 1; /* JUMP */
+        case 'w' :  /* Rewriting of jump*/
+                    map[playPosX][playPosY] = ' ';
+                    playPosX = playPosX + 1;
+                    playPosY = playPosY - 1;
+                    map[playPosX][playPosY] = 'X';
+                    printMap();
+                    Sleep(200);
+
+                    /* end - Old jump */
+                    /* DONE
+                    playPosX = playPosX + 1;
                     playPosY = playPosY - 1;
                     initializeMap(playPosX, playPosY, 1);
                     printMap();
                     Sleep(200);
+                    */
+                    /* NOT DONE
                     playPosX = playPosX + 1;
                     initializeMap(playPosX, playPosY, 1);
                     printMap();
@@ -95,11 +107,19 @@ void move(int playPosX, int playPosY, int* poiX, int* poiY) /* HANDLING PLAYER M
                     playPosY = playPosY +1;
                     *poiX = playPosX;
                     *poiY = playPosY;
+                    */
             break;
         case 'a' :  if(playPosX != 0)
-                        *poiX = --playPosX; /* Move one step to the left */
+                    {
+                        map[playPosX-1][playPosY+1] = ' ';
+                        map[playPosX-1][playPosY] = 'P';
+                        *poiX = playPosX-1;
+                        *poiY = playPosY;
+                    }
+                        //*poiX = --playPosX; /* Move one step to the left */
+
             break;
-        case 'd' : *poiX = ++playPosX; /* Moves one step to the right */
+        case 'd' : //*poiX = ++playPosX; /* Moves one step to the right */
             break;
         default : printf("Something went wrong!\n");
     }
@@ -113,16 +133,17 @@ int main(void)
     int i, x;
     int playPosX = 5, playPosY = 4, poiX = 5, poiY = 4;
 
+
     gameState = initializeMap(playPosX, playPosY, gameState);
 
     while(gameState)
     {
         printMap();
-        printf("%d %d", playPosX, playPosY);
+        printf("%d %d", playPosX, playPosY, &poiX, &poiY);
         move(playPosX, playPosY, &poiX, &poiY); /* Sending the x and y coord to move-function (and the pointers) */
         playPosX = poiX; /* Saving the pointer in the variable */
         playPosY = poiY; /* Saving the pointer in the variable  */
-        moveMapOne(playPosX, playPosY);
+        //moveMapOne(playPosX, playPosY); /* Function for moving the map left*/
 
         Sleep(100);
     }

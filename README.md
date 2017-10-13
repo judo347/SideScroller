@@ -6,6 +6,7 @@ Basic sidescroller game in C (Practice purpose)
 - [ ] lav død function/animation
 - [ ] MoveMap (fix moving player)
 - [ ] Fix array, 2d array is like a 1d. Do not move the start one line up or wise versa.
+- [ ] Rework jump. Move player in array instead of inistializing again.
 
 #### Working on: moveArrayOneLeft.c
 Shift 2d array

@@ -8,7 +8,9 @@ Basic sidescroller game in C (Practice purpose)
 - [ ] Fix array, 2d array is like a 1d. Do not move the start one line up or wise versa.
 - [ ] Rework jump. Move player in array instead of inistializing again.
 
-#### Working on: moveArrayOneLeft.c
+#### Working on:  ####
+move function (a key) - getting player coords right, parsing and changing array
+
 Shift 2d array
 [Resource 1](https://stackoverflow.com/questions/12633039/shift-elements-in-array)
 [Resource 2](https://stackoverflow.com/questions/28334143/function-to-left-shift-a-2d-array-in-c)
